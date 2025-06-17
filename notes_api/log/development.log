@@ -34,3 +34,39 @@ Started GET "/favicon.ico" for ::1 at 2025-06-17 10:40:07 -0700
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
+Started GET "/api/v1/notes" for ::1 at 2025-06-17 10:43:50 -0700
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"note" => {}}
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."created_at" DESC /*action='index',application='NotesApi',controller='notes'*/[0m
+  ↳ app/controllers/api/v1/notes_controller.rb:7:in 'Api::V1::NotesController#index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/notes" for ::1 at 2025-06-17 10:44:46 -0700
+Processing by Api::V1::NotesController#create as */*
+  Parameters: {"note" => {"title" => "hello", "content" => "say hello"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='NotesApi',controller='notes'*/[0m
+  ↳ app/controllers/api/v1/notes_controller.rb:19:in 'Api::V1::NotesController#create'
+  [1m[36mNote Create (1.5ms)[0m  [1m[32mINSERT INTO "notes" ("title", "content", "created_at", "updated_at") VALUES ('hello', 'say hello', '2025-06-17 17:44:46.820560', '2025-06-17 17:44:46.820560') RETURNING "id" /*action='create',application='NotesApi',controller='notes'*/[0m
+  ↳ app/controllers/api/v1/notes_controller.rb:19:in 'Api::V1::NotesController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*action='create',application='NotesApi',controller='notes'*/[0m
+  ↳ app/controllers/api/v1/notes_controller.rb:19:in 'Api::V1::NotesController#create'
+Completed 201 Created in 17ms (Views: 0.2ms | ActiveRecord: 6.9ms (1 query, 0 cached) | GC: 5.8ms)
+
+
+Started GET "/api/v1/notes" for ::1 at 2025-06-17 10:47:03 -0700
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"note" => {}}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."created_at" DESC /*action='index',application='NotesApi',controller='notes'*/[0m
+  ↳ app/controllers/api/v1/notes_controller.rb:7:in 'Api::V1::NotesController#index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/notes" for ::1 at 2025-06-17 10:50:00 -0700
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"note" => {}}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."created_at" DESC /*action='index',application='NotesApi',controller='notes'*/[0m
+  ↳ app/controllers/api/v1/notes_controller.rb:7:in 'Api::V1::NotesController#index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+

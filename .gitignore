@@ -81,3 +81,4 @@ npm-debug.log*
 /vendor/bundle 
 # Ignore tmp folder
 notes_api/tmp/
+notes_api/log/development.log

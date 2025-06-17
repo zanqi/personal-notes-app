@@ -2,3 +2,16 @@
   [1m[35m (137.2ms)[0m  [1m[35mCREATE DATABASE "notes_api_development" ENCODING = 'unicode' /*application='NotesApi'*/[0m
   [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='NotesApi'*/[0m
   [1m[35m (65.0ms)[0m  [1m[35mCREATE DATABASE "notes_api_test" ENCODING = 'unicode' /*application='NotesApi'*/[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='NotesApi'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='NotesApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2067313975522550475) /*application='NotesApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='NotesApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='NotesApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-06-17 17:07:05.060599', '2025-06-17 17:07:05.060601') RETURNING "key" /*application='NotesApi'*/[0m
+Migrating to CreateNotes (20250617170620)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='NotesApi'*/[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "notes" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='NotesApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250617170620') RETURNING "version" /*application='NotesApi'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='NotesApi'*/[0m
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2067313975522550475) /*application='NotesApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='NotesApi'*/[0m
